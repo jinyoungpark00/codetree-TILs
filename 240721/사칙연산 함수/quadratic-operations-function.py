@@ -16,7 +16,7 @@ def div(a, c):
     return a // c
 
 result = 0
-
+flag = True
 if o == '+':
     result = plus(a, c)
 elif o == '-':
@@ -25,5 +25,10 @@ elif o == '*':
     result = mult(a, c)
 elif o == '/':
     result = div(a, c)
+else:
+    flag = False
 
-print(f"{a} {o} {c} = {result}")
+if flag:
+    print(f"{a} {o} {c} = {result}")
+else:
+    print("False")
