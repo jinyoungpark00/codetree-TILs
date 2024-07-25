@@ -3,6 +3,9 @@ a = list(map(int, input().split()))
 b = list(map(int, input().split()))
 
 def is_fraction(n1, n2):
+    if n1 < n2:
+        return False
+        
     for i in range(len(a)):
         if a[i] != b[0]:
             continue
