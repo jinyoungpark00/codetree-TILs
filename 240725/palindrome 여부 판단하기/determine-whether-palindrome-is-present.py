@@ -3,7 +3,7 @@ a = input()
 def is_palindrome(a):
     for i in range(len(a) // 2):
         left = a[i]
-        right = a[-i]
+        right = a[-(i + 1)]
         if left != right:
             return False
     return True
