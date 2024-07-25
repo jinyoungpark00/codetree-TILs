@@ -4,11 +4,13 @@ b = list(map(int, input().split()))
 
 def is_fraction(n1, n2):
     for i in range(len(a)):
-        if a[i] == b[0]:
+        if a[i] != b[0]:
+            continue
+        else:
             for j in range(1, len(b)):
                 if a[i + j] != b[j]:
-                    return False
-                return True
+                    break
+            return True
     return False
 
 if is_fraction(n1, n2):
