@@ -6,7 +6,7 @@ def cal_time(day, hour, minute):
     minute -= 11
     result = day * 24 * 60 + hour * 60 + minute
     
-    if result > 0:
+    if result >= 0:
         return result
     else:
         return -1
