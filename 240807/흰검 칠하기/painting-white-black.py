@@ -22,7 +22,7 @@ for _ in range(n):
                 tiles[i] = 3
         start += (length - 1)
     else:
-        for i in range(start+ OFFSET - length + 1, start + OFFSET + 1):
+        for i in range(start+ OFFSET, start + OFFSET - length, -1):
             if tiles[i] == 3:
                 continue
             count[i] += 1
