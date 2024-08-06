@@ -20,16 +20,16 @@ for _ in range(n):
             tiles[i] = 1
             if count[i] >= 4: # 4번 이상 칠해질 시 회색으로 변경
                 tiles[i] = 3
-        start += length
+        start += (length - 1)
     else:
-        for i in range(start+ OFFSET - length, start+ OFFSET):
+        for i in range(start+ OFFSET - length + 1, start + OFFSET + 1):
             if tiles[i] == 3:
                 continue
             count[i] += 1
             tiles[i] = 2
             if count[i] >= 4:
                 tiles[i] = 3
-        start -= length
+        start -= (length - 1)
 
 
 black = 0
