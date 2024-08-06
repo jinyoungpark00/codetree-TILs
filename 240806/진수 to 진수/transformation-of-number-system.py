@@ -15,10 +15,11 @@ digits = []
 while True:
     if result < b:
         digits.append(result)
+        break
     
     digits.append(result % b)
     result //= b
 
 
-for digit in digits[:: -1]:
-    print(digit, end="")
+for d in digits[:: -1]:
+    print(d, end="")
