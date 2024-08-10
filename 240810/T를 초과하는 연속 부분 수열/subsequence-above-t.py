@@ -8,6 +8,8 @@ for i in range(n):
         count = 1
     elif array[i - 1] > k:
         count += 1
+    else:
+        count = 1
     max_count = max(max_count, count)
 
 print(max_count)
