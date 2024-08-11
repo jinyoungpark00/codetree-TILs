@@ -15,6 +15,7 @@ for _ in range(n):
         v = v + 1 if d == 'R' else v - 1
         robot_a[i] = v
     start += t
+    MAX = min(MAX, start)
 
 # 로봇 B 이동
 start = 1
@@ -26,6 +27,7 @@ for _ in range(m):
         v = v + 1 if d == 'R' else v - 1
         robot_b[i] = v
     start += t
+    MAX = min(MAX, start)
 
 # 마주치는 경우 count
 count = 0
