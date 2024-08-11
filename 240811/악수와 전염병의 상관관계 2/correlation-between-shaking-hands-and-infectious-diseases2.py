@@ -21,7 +21,10 @@ for shake in shakes:
     is_infected_y, K_y = infection[y]
 
     if (is_infected_x == 1 and K_x > 0) or (is_infected_y == 1 and K_y > 0):
-        K_x, K_y = K_x - 1, K_y - 1
+        if is_infected_x:
+            K_x -= 1
+        if is_infected_y:
+            K_y -= 1
         infection[x] = (1, K_x)
         infection[y] = (1, K_y)
 
