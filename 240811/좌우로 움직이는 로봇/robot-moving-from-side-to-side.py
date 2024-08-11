@@ -6,7 +6,7 @@ robot_b = [0] * (MAX + 1)
 
 
 # 로봇 A 이동
-start = 0
+start = 1
 v = 0
 for _ in range(n):
     t, d = input().split()
@@ -17,9 +17,9 @@ for _ in range(n):
     start += t
 
 # 로봇 B 이동
-start = 0
+start = 1
 v = 0
-for _ in range(n):
+for _ in range(m):
     t, d = input().split()
     t = int(t)
     for i in range(start, start + t):
