@@ -17,7 +17,7 @@ d = direc[d]
 
 # 범위 체크
 def in_range(r, c):
-    return 1 <= r and r < n and 1 <= c and c < n
+    return 1 <= r and r <= n and 1 <= c and c <= n
 
 
 # 시뮬레이션
