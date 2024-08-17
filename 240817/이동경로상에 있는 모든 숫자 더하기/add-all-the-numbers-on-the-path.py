@@ -5,19 +5,12 @@ matrix = []
 for _ in range(n):
     matrix.append(list(map(int, input().split())))
 
-visited = [
-    [False] * n
-    for _ in range(n)
-]
-
 # R D L U
 dx, dy = [0, 1, 0, -1], [1, 0, -1, 0]
 # 시작 방향 (U)
 d = 3
 # 시작 위치 (정중앙)
 x, y = n // 2, n // 2
-# 방문 처리
-visited[x][y] = True
 # score
 score = matrix[x][y]
 
@@ -37,9 +30,7 @@ for inst in insts:
             continue
         # 이동
         x, y = nx, ny
-        # 방문하지 않은 곳이라면 점수 count
-        if visited[x][y] == False:
-            score += matrix[x][y]
+        score += matrix[x][y]
 
 # 출력
 print(score)
