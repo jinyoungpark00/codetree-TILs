@@ -13,8 +13,8 @@ x, y = 0, 0
 # 시작 지점 방문 처리
 matrix[x][y] = 'A'
 # 알파벳 카운트
-alpha = 66
-
+alpha = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
+i = 1
 def in_range(x, y):
     return 0 <= x and x < n and 0 <= y and y < m
 
@@ -28,11 +28,9 @@ for _ in range(2, n * m + 1):
         nx, ny = x + dx[d], y + dy[d]
     x, y = nx, ny
     # alpha 채워넣기
-    matrix[x][y] = chr(alpha)
+    matrix[x][y] = alpha[i]
     # alpha 증가
-    alpha += 1
-    if alpha > 81:
-        alpha -= 26
+    i = (i + 1) % 26
 
 # 출력
 for i in range(n):
