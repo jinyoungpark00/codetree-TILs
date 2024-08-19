@@ -1,10 +1,10 @@
 r, c = map(int, input().split())
-r, c = r - 1, c - 1
 m = [
     list(input().split())
     for _ in range(r)
 ]
 
+r, c = r - 1, c - 1
 sr, sc = 0, 0
 flag = m[sr][sc]
 
@@ -19,8 +19,10 @@ for i in range(sr + 1, r):
                 for l in range(j + 1, c):
                     # 두 번째 jump
                     if m[k][l] != flag:
-                        # 최종 지점에 갈 수 있는지 check
-                        if r > k and c > l:
+                        if k < r and l < c:
                             count += 1
-
-print(count)
+                        
+if m[sr][sc] == m[r][c]:
+    print(0)
+else:
+    print(count)
