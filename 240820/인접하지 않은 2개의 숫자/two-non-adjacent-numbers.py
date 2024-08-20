@@ -5,6 +5,6 @@ ans = 0
 for i in range(n - 2):
     for j in range(i + 2, n):
         v = s[i] + s[j]
-    ans = max(ans, v)
+        ans = max(ans, v)
 
 print(ans)
