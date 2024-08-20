@@ -11,7 +11,7 @@ def check_carry(f, sk, t):
             break
         f_, sk_, t_ = f % 10, sk % 10, t % 10
         f, sk, t = f // 10, sk // 10, t // 10
-        if f_ + sk_ + t_ > 10:
+        if f_ + sk_ + t_ >= 10:
             flag = True
             break
     return flag
@@ -27,7 +27,12 @@ for i in range(n):
             flag = check_carry(f, sk, t)
             # carry가 없을 경우에만 합산
             if flag == False:
+                print(s[i], s[j], s[k])
                 total = s[i] + s[j] + s[k]
                 ans = max(ans, total)
 
-print(ans)
+
+if ans == 0:
+    print(-1)
+else:
+    print(ans)
