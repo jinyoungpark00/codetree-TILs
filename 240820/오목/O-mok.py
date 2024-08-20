@@ -3,45 +3,36 @@ matrix = [
     for _ in range(19)
 ]
 
+# 방향을 위한 배열 (우측, 하단, 우하단 대각선, 좌하단 대각선)
+directions = [(0, 1), (1, 0), (1, 1), (-1, 1)]
 
-def check_winner(r, c):
-    if matrix[r][c] == 0:
-        return (0, 0, 0)
-    # 모든 방향 승리 조건 check
-    if r - 2 >= 0 and r + 2 <= 18 and c - 2 >= 0 and c + 2 <= 18:
-        d1, d2, d3, d4 = False, False, False, False
-        for i in range(-2, 2):
-            if matrix[r + i][c] != matrix[r + i + 1][c]:
-                d1 = True
-            if matrix[r][c + i] != matrix[r][c + i + 1]:
-                d2 = True
-            if matrix[r + i][c + i] != matrix[r + i + 1][c + i + 1]:
-                d3 = True
-            if matrix[r - i][c + i] != matrix[r - i - 1][c + i + 1]:
-                d4 = True
-        if d1 == False or d2 == False or d3 == False or d4 == False:
-            return (matrix[r][c], r + 1, c + 1)
-        else:
-            return (0, 0, 0)
-    return (0, 0, 0)
-            
-            
+def check_winner():
+    for r in range(19):
+        for c in range(19):
+            if matrix[r][c] != 0:
+                color = matrix[r][c]
+                for dr, dc in directions:
+                    count = 1
+                    nr, nc = r + dr, c + dc
+                    while 0 <= nr < 19 and 0 <= nc < 19 and matrix[nr][nc] == color:
+                        count += 1
+                        if count == 5:
+                            # 육목이 아닌지 확인 (양 끝에 같은 색이 없어야 함)
+                            prev_r, prev_c = r - dr, c - dc
+                            next_r, next_c = nr + dr, nc + dc
+                            if (not (0 <= prev_r < 19 and 0 <= prev_c < 19) or matrix[prev_r][prev_c] != color) and \
+                               (not (0 <= next_r < 19 and 0 <= next_c < 19) or matrix[next_r][next_c] != color):
+                                # 가운데 돌 출력 (가로세로 대각선에 따라 다름)
+                                mid_r, mid_c = r + (dr * 2), c + (dc * 2)
+                                return color, mid_r + 1, mid_c + 1
+                        nr += dr
+                        nc += dc
+    return 0, 0, 0
 
-winner = (0, 0, 0)
-found_winner = False
+winner, x, y = check_winner()
 
-for i in range(19):
-    if found_winner:
-        break
-    for j in range(19):
-        winner = check_winner(i, j)
-        if winner[0] != 0:
-            found_winner = True  # 승자를 찾았음을 기록
-            break  # 내부 루프 탈출
-            
-            
-if winner[0] != 0:
-    print(winner[0])
-    print(winner[1], winner[2])
+if winner:
+    print(winner)
+    print(x, y)
 else:
     print(0)
