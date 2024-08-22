@@ -14,9 +14,10 @@ for i in range(n):
         if not in_range(i, j + 2):
             continue
         # 같은 열 탐색
-        for k in range(j + 1, n):
+        for k in range(j + 3, n):
             if not in_range(i, k + 2):
                 continue
+            print(i, k)
             total = max(total, matrix[i][j] + matrix[i][j + 1] + matrix[i][j + 2]
                                 + matrix[i][k] + matrix[i][k + 1] + matrix[i][k + 2])
         # 다른 열 탐색
