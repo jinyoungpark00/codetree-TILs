@@ -12,7 +12,7 @@ for _ in range(n):
 
 # 점수 계산
 ans = 0
-for i in range(1, n - k + 2):
+for i in range(1, 10001 - k):
     local = 0
     for j in range(i, i + k + 1):
         local += array[j]
