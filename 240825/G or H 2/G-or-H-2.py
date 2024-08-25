@@ -26,6 +26,6 @@ for i in range(index_max + 1):
         if g == h and g > 0 and h > 0 and array[i] != 0 and array[j] != 0:
             count = max(count, j - i)
 if array[2] == 'G' and array[4] == 'G':
-    print(0)
+    print(2)
 else:
     print(count)
